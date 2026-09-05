@@ -1,0 +1,53 @@
+name: Deploy Portfolio to Azure Storage
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "assets/**"
+      - ".github/workflows/deploy-portfolio.yml"
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy website
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Upload portfolio to Azure Storage
+        uses: azure/CLI@v2
+        env:
+          AZURE_STORAGE_ACCOUNT: ${{ vars.AZURE_STORAGE_ACCOUNT }}
+          AZURE_STORAGE_KEY: ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
+        with:
+          inlineScript: |
+            echo "Uploading index.html"
+
+            az storage blob upload \
+              --account-name "$AZURE_STORAGE_ACCOUNT" \
+              --account-key "$AZURE_STORAGE_KEY" \
+              --container-name '$web' \
+              --name index.html \
+              --file index.html \
+              --overwrite true
+
+            echo "Uploading website assets"
+
+            az storage blob upload-batch \
+              --account-name "$AZURE_STORAGE_ACCOUNT" \
+              --account-key "$AZURE_STORAGE_KEY" \
+              --destination '$web' \
+              --destination-path assets \
+              --source assets \
+              --overwrite true
+
+            echo "Portfolio deployment complete"
