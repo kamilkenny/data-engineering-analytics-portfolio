@@ -798,3 +798,540 @@ footer strong {
         text-align: left;
     }
 }
+
+
+/* =========================================================
+   Stage 6, portrait and achievements homepage redesign
+   ========================================================= */
+
+.hero {
+    min-height: 820px;
+    grid-template-columns: minmax(0, 1.08fr) minmax(390px, 0.92fr);
+    align-items: center;
+    gap: 72px;
+    padding: 82px 0 54px;
+}
+
+.hero-copy {
+    min-width: 0;
+}
+
+.hero h1 {
+    max-width: 760px;
+    font-size: clamp(4rem, 6.7vw, 6.8rem);
+}
+
+.hero h2 {
+    max-width: 760px;
+}
+
+.hero-description {
+    max-width: 735px;
+}
+
+.hero-visual {
+    min-width: 0;
+    display: grid;
+    gap: 18px;
+    align-self: center;
+}
+
+.portrait-stage {
+    position: relative;
+    min-height: 545px;
+    margin: 0;
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 24px;
+
+    background:
+        radial-gradient(
+            circle at 64% 24%,
+            rgba(81,200,232,0.26),
+            transparent 22rem
+        ),
+        linear-gradient(
+            145deg,
+            #142c39 0%,
+            #0d202c 46%,
+            #071018 100%
+        );
+
+    box-shadow: 0 28px 80px rgba(0,0,0,0.22);
+}
+
+.portrait-stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(7,16,24,0.58) 0%,
+            rgba(7,16,24,0.10) 42%,
+            rgba(7,16,24,0.00) 68%
+        ),
+        linear-gradient(
+            180deg,
+            rgba(7,16,24,0.02) 42%,
+            rgba(7,16,24,0.90) 100%
+        );
+}
+
+.portrait-stage img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 15%;
+
+    mix-blend-mode: multiply;
+
+    filter:
+        brightness(1.30)
+        contrast(1.04)
+        saturate(0.88);
+
+    transform: scale(1.02);
+}
+
+.portrait-caption {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    bottom: 26px;
+    z-index: 4;
+
+    display: grid;
+    gap: 5px;
+}
+
+.portrait-caption span {
+    color: var(--accent);
+
+    font-size: 0.67rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+.portrait-caption strong {
+    max-width: 390px;
+
+    color: var(--text);
+
+    font-size: 0.93rem;
+    line-height: 1.35;
+}
+
+.portrait-line {
+    position: absolute;
+    top: 34px;
+    z-index: 4;
+
+    width: 5px;
+    height: 86px;
+
+    border-radius: 999px;
+
+    background: var(--accent);
+
+    box-shadow: 0 0 20px rgba(81,200,232,0.35);
+
+    transform: rotate(14deg);
+}
+
+.line-one {
+    right: 42px;
+}
+
+.line-two {
+    right: 56px;
+    opacity: 0.66;
+}
+
+.line-three {
+    right: 70px;
+    opacity: 0.34;
+}
+
+.achievement-card {
+    padding: 24px 25px 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(14,29,41,0.98),
+            rgba(8,20,30,0.94)
+        );
+
+    border: 1px solid var(--border);
+    border-radius: 19px;
+}
+
+.achievement-heading {
+    display: grid;
+    gap: 5px;
+
+    margin-bottom: 12px;
+}
+
+.achievement-heading > span,
+.achievement-more > span {
+    color: var(--accent);
+
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+}
+
+.achievement-heading > strong {
+    color: var(--text);
+
+    font-size: 1rem;
+}
+
+.achievement-list {
+    display: grid;
+}
+
+.achievement-list article {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 12px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.achievement-year {
+    padding-top: 2px;
+
+    color: var(--accent);
+
+    font-size: 0.73rem;
+    font-weight: 800;
+}
+
+.achievement-list p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 0.78rem;
+    line-height: 1.48;
+}
+
+.achievement-list p strong {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #e7f1f5;
+
+    font-size: 0.82rem;
+}
+
+.achievement-more {
+    padding-top: 14px;
+}
+
+.achievement-more p {
+    margin: 7px 0 0;
+
+    color: #8097a8;
+
+    font-size: 0.74rem;
+    line-height: 1.5;
+}
+
+.focus-strip {
+    width: min(calc(100% - 40px), var(--max-width));
+    margin: 0 auto 34px;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    border-top: 1px solid var(--border);
+    border-left: 1px solid var(--border);
+}
+
+.focus-strip article {
+    min-height: 170px;
+
+    padding: 24px;
+
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(14,29,41,0.42);
+}
+
+.focus-strip span {
+    color: #4f7184;
+
+    font-size: 0.72rem;
+    font-weight: 750;
+}
+
+.focus-strip strong {
+    display: block;
+
+    margin: 30px 0 7px;
+
+    color: var(--text);
+
+    font-size: 0.96rem;
+}
+
+.focus-strip small {
+    color: var(--muted);
+
+    font-size: 0.78rem;
+    line-height: 1.48;
+}
+
+@media (max-width: 1100px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 46px;
+    }
+
+    .hero-copy {
+        max-width: 900px;
+    }
+
+    .hero-visual {
+        width: min(100%, 820px);
+    }
+
+    .portrait-stage {
+        min-height: 650px;
+    }
+
+    .focus-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .hero {
+        padding-top: 68px;
+    }
+
+    .portrait-stage {
+        min-height: 520px;
+    }
+
+    .achievement-list article {
+        grid-template-columns: 44px 1fr;
+    }
+
+    .focus-strip {
+        width: min(calc(100% - 28px), var(--max-width));
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 520px) {
+    .portrait-stage {
+        min-height: 455px;
+        border-radius: 18px;
+    }
+
+    .portrait-caption {
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .portrait-line {
+        top: 26px;
+        height: 68px;
+    }
+
+    .line-one {
+        right: 26px;
+    }
+
+    .line-two {
+        right: 39px;
+    }
+
+    .line-three {
+        right: 52px;
+    }
+
+    .achievement-card {
+        padding: 20px;
+    }
+}
+
+
+/* =========================================================
+   Stage 7, reordered achievements and smaller portrait
+   ========================================================= */
+
+.hero {
+    grid-template-columns: minmax(0, 1.18fr) minmax(330px, 0.68fr);
+    gap: 74px;
+    min-height: 740px;
+    padding: 76px 0 58px;
+}
+
+.hero-visual {
+    width: min(100%, 430px);
+    justify-self: end;
+    align-self: center;
+}
+
+.portrait-stage {
+    width: 100%;
+    min-height: 455px;
+    max-height: 455px;
+}
+
+.portrait-stage img {
+    object-position: center 13%;
+}
+
+.portrait-caption {
+    left: 23px;
+    right: 23px;
+    bottom: 22px;
+}
+
+.portrait-caption strong {
+    max-width: 320px;
+    font-size: 0.84rem;
+}
+
+.achievements-section {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(14,29,41,0.18),
+            rgba(8,18,27,0.05)
+        );
+}
+
+.achievements-heading-main {
+    max-width: 900px;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 52px;
+}
+
+.achievement-item {
+    min-height: 190px;
+    display: grid;
+    grid-template-columns: 58px 1fr;
+    gap: 18px;
+    align-items: start;
+
+    padding: 28px;
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(14,29,41,0.88),
+            rgba(9,22,32,0.72)
+        );
+}
+
+.achievement-item .achievement-year {
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+
+.achievement-item strong {
+    display: block;
+    margin-bottom: 9px;
+
+    color: var(--text);
+    font-size: 1.05rem;
+}
+
+.achievement-item p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+.achievement-more-wide {
+    margin-top: 16px;
+    padding: 22px 24px;
+
+    border-left: 3px solid var(--accent);
+
+    background: rgba(14,29,41,0.54);
+}
+
+.achievement-more-wide p {
+    max-width: 1000px;
+    margin: 8px 0 0;
+
+    color: var(--muted);
+    font-size: 0.84rem;
+}
+
+@media (max-width: 1100px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        width: min(100%, 520px);
+        justify-self: start;
+    }
+
+    .portrait-stage {
+        min-height: 500px;
+        max-height: 500px;
+    }
+}
+
+@media (max-width: 760px) {
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        width: min(100%, 430px);
+    }
+
+    .portrait-stage {
+        min-height: 440px;
+        max-height: 440px;
+    }
+}
+
+@media (max-width: 520px) {
+    .portrait-stage {
+        min-height: 400px;
+        max-height: 400px;
+    }
+
+    .achievement-item {
+        grid-template-columns: 48px 1fr;
+        padding: 22px;
+    }
+}
