@@ -1335,3 +1335,302 @@ footer strong {
         padding: 22px;
     }
 }
+
+
+/* ============================================================
+   RESEARCH, RECOGNITION & PUBLIC ENGAGEMENT
+   ============================================================ */
+
+.engagement-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.engagement-section::before {
+  content: "";
+  position: absolute;
+  top: 90px;
+  right: -180px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(81, 200, 232, 0.08) 0%,
+      rgba(81, 200, 232, 0.025) 45%,
+      transparent 72%
+    );
+  pointer-events: none;
+}
+
+.engagement-heading {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 48px;
+}
+
+.engagement-intro {
+  max-width: 850px;
+  margin-top: 18px;
+  color: var(--muted, #aab7c3);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+
+/* THREE CARD STORY GRID */
+
+.engagement-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+
+/* CARD */
+
+.engagement-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+  margin: 0;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(16, 33, 46, 0.98),
+      rgba(8, 20, 29, 0.97)
+    );
+
+  border: 1px solid
+    var(--border, rgba(255, 255, 255, 0.08));
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.16);
+
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.engagement-card:hover {
+  transform: translateY(-6px);
+
+  border-color:
+    rgba(81, 200, 232, 0.38);
+
+  box-shadow:
+    0 24px 55px rgba(0, 0, 0, 0.24);
+}
+
+
+/* IMAGE */
+
+.engagement-image-frame {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+
+  background: #091721;
+
+  border-bottom:
+    1px solid
+    var(--border, rgba(255, 255, 255, 0.08));
+}
+
+.engagement-image-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 58%,
+      rgba(5, 15, 23, 0.18) 100%
+    );
+
+  pointer-events: none;
+}
+
+.engagement-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition:
+    transform 400ms ease,
+    filter 300ms ease;
+}
+
+.engagement-card:hover .engagement-image {
+  transform: scale(1.03);
+}
+
+.engagement-image-poster {
+  object-position: center 20%;
+}
+
+.engagement-image-florence {
+  object-position: center 38%;
+}
+
+
+/* CARD CONTENT */
+
+.engagement-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  padding: 27px 27px 30px;
+}
+
+.engagement-category {
+  display: block;
+  margin-bottom: 13px;
+
+  color:
+    var(--accent, #51c8e8);
+
+  font-size: 0.67rem;
+  font-weight: 800;
+
+  line-height: 1.45;
+  letter-spacing: 0.17em;
+}
+
+.engagement-content h3 {
+  margin: 0 0 15px;
+
+  color:
+    var(--text, #f4f7f8);
+
+  font-size: 1.28rem;
+  font-weight: 700;
+
+  line-height: 1.28;
+  letter-spacing: -0.025em;
+}
+
+.engagement-content p {
+  margin: 0;
+
+  color:
+    var(--muted, #aab7c3);
+
+  font-size: 0.93rem;
+  line-height: 1.75;
+}
+
+.engagement-content strong {
+  color:
+    var(--text, #f4f7f8);
+
+  font-weight: 600;
+}
+
+
+/* FLORENCE RECOGNITION CARD */
+
+.engagement-card-featured {
+  border-color:
+    rgba(81, 200, 232, 0.20);
+}
+
+.engagement-outcome {
+  margin-top: 22px;
+  padding: 17px 18px;
+
+  background:
+    rgba(81, 200, 232, 0.055);
+
+  border:
+    1px solid
+    rgba(81, 200, 232, 0.16);
+
+  border-radius: 12px;
+}
+
+.engagement-outcome span {
+  display: block;
+  margin-bottom: 7px;
+
+  color:
+    var(--accent, #51c8e8);
+
+  font-size: 0.64rem;
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+}
+
+.engagement-outcome p {
+  color:
+    var(--text, #eaf1f4);
+
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+
+  .engagement-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .engagement-card-featured {
+    grid-column: 1 / -1;
+  }
+
+  .engagement-card-featured .engagement-image-frame {
+    aspect-ratio: 16 / 7;
+  }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .engagement-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .engagement-card-featured {
+    grid-column: auto;
+  }
+
+  .engagement-card-featured .engagement-image-frame {
+    aspect-ratio: 4 / 3;
+  }
+
+  .engagement-content {
+    padding: 23px;
+  }
+
+  .engagement-content h3 {
+    font-size: 1.18rem;
+  }
+
+  .engagement-intro {
+    font-size: 0.95rem;
+  }
+}
