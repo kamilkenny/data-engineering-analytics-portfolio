@@ -1634,3 +1634,44 @@ footer strong {
     font-size: 0.95rem;
   }
 }
+
+/* Florence certificate links */
+
+.certificate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.certificate-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 13px;
+
+  color: var(--accent, #51c8e8);
+  background: rgba(81, 200, 232, 0.08);
+
+  border: 1px solid rgba(81, 200, 232, 0.22);
+  border-radius: 8px;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.certificate-link:hover {
+  background: rgba(81, 200, 232, 0.15);
+  border-color: rgba(81, 200, 232, 0.42);
+  transform: translateY(-1px);
+}
+
+.certificate-download {
+  color: var(--text, #f4f7f8);
+}
