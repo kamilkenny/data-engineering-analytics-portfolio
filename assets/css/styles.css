@@ -1675,3 +1675,34 @@ footer strong {
 .certificate-download {
   color: var(--text, #f4f7f8);
 }
+
+/* Achievement certificate links */
+
+.achievement-certificate-link {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 12px;
+  padding: 7px 10px;
+
+  color: var(--accent, #51c8e8);
+  background: rgba(81, 200, 232, 0.07);
+
+  border: 1px solid rgba(81, 200, 232, 0.18);
+  border-radius: 7px;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.achievement-certificate-link:hover {
+  background: rgba(81, 200, 232, 0.14);
+  border-color: rgba(81, 200, 232, 0.38);
+  transform: translateY(-1px);
+}
